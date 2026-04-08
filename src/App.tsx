@@ -246,7 +246,7 @@ export default function App() {
                 TARGET: 240+ MARKS. <br/><span className="text-zinc-500">REGRET IS NOT AN OPTION.</span>
               </h1>
               
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {(['physics', 'chemistry', 'maths'] as Subject[]).map(subj => (
                   <motion.button 
                     whileHover={{ scale: 1.05 }}
@@ -273,9 +273,9 @@ export default function App() {
               </div>
             </div>
 
-            <div className="text-right relative z-10">
+            <div className="text-left md:text-right relative z-10 mt-4 md:mt-0">
               <div className="text-[10px] font-bold tracking-widest text-zinc-500 mb-2 uppercase">Doomsday Protocol</div>
-              <div className="text-4xl md:text-5xl font-mono font-bold text-orange-500 tracking-tight text-shadow-neon">
+              <div className="text-3xl md:text-5xl font-mono font-bold text-orange-500 tracking-tight text-shadow-neon">
                 {String(timeLeft.days).padStart(2, '0')} <span className="text-zinc-700">D</span> : {String(timeLeft.hours).padStart(2, '0')} <span className="text-zinc-700">H</span> : {String(timeLeft.minutes).padStart(2, '0')} <span className="text-zinc-700">M</span>
               </div>
             </div>
@@ -316,7 +316,7 @@ export default function App() {
                           />
                         )}
 
-                        <div className="flex items-center justify-between mb-2">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                           <div className="flex items-center gap-3">
                             <span className="text-xs font-mono text-zinc-500 font-bold">{shift.id}</span>
                             <h3 className={cn("font-black tracking-tight transition-colors", isLocked ? "text-zinc-600" : "text-white")}>
@@ -477,26 +477,26 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-zinc-950/95 backdrop-blur-xl z-50 flex flex-col items-center justify-center"
+            className="fixed inset-0 bg-zinc-950/95 backdrop-blur-xl z-50 flex flex-col items-center justify-center p-4"
           >
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="text-center space-y-8"
+              className="text-center space-y-6 md:space-y-8 w-full max-w-3xl"
             >
-              <h2 className="text-6xl font-black tracking-tighter text-orange-500 drop-shadow-[0_0_20px_rgba(249,115,22,0.5)]">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-orange-500 drop-shadow-[0_0_20px_rgba(249,115,22,0.5)]">
                 BOSS FIGHT IN PROGRESS
               </h2>
-              <div className="text-9xl font-mono font-bold text-white tracking-tighter">
+              <div className="text-6xl md:text-8xl lg:text-9xl font-mono font-bold text-white tracking-tighter break-words">
                 {formatTime(bossFightRemaining)}
               </div>
-              <div className="flex justify-center gap-4 mt-12">
+              <div className="flex justify-center gap-4 mt-8 md:mt-12">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={cancelBossFight}
-                  className="px-8 py-3 rounded-lg border border-zinc-800 text-zinc-500 font-bold tracking-widest text-sm hover:text-white hover:bg-zinc-900 transition-all"
+                  className="px-6 md:px-8 py-3 rounded-lg border border-zinc-800 text-zinc-500 font-bold tracking-widest text-sm hover:text-white hover:bg-zinc-900 transition-all w-full md:w-auto"
                 >
                   ABORT MISSION
                 </motion.button>
